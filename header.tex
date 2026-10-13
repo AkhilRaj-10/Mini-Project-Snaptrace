@@ -1,0 +1,124 @@
+\documentclass[12pt]{article}
+
+% ---------- FONT ----------
+\usepackage{mathptmx}
+\usepackage{amsmath}
+
+% ---------- Page Layout ----------
+\usepackage[a4paper,
+    top=2cm,
+    bottom=2cm,
+    left=2cm,
+    right=2cm,
+    headheight=2cm,
+    footskip=1cm
+]{geometry}
+
+\usepackage{setspace}
+\onehalfspacing
+
+% ---------- Colors & Graphics ----------
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% ---------- TikZ Page Border ----------
+\usepackage{tikz}
+\usepackage{tikzpagenodes}
+
+\newcommand{\mysecondstyle}{%
+    \begin{tikzpicture}[remember picture, overlay]
+
+        % Outer thick border
+        \draw[line width=2pt]
+        ([xshift=-6mm,yshift=6mm]current page text area.north west)
+        rectangle
+        ([xshift=6mm,yshift=-6mm]current page text area.south east);
+
+        % Inner thin border
+        \draw[line width=0.5pt]
+        ([xshift=-4.5mm,yshift=4.5mm]current page text area.north west)
+        rectangle
+        ([xshift=4.5mm,yshift=-4.5mm]current page text area.south east);
+
+        % Header text (Left)
+        \node[anchor=west, yshift=12mm]
+        at (current page text area.north west)
+        {\footnotesize MASTER OF COMPUTER APPLICATION };
+
+        % Header text (Right)
+        \node[anchor=east, yshift=12mm]
+        at (current page text area.north east)
+        {\footnotesize SnapTrace — Intelligent Event Photo};
+
+        % Footer text (Left)
+        \node[anchor=west, yshift=-12mm]
+        at (current page text area.south west)
+        {\footnotesize SCHOOL OF TECHNOLOGY AND APPLIED SCIENCES};
+
+        % Footer Page Number
+        \node[anchor=east, yshift=-12mm]
+        at (current page text area.south east)
+        {\normalsize \thepage};
+
+    \end{tikzpicture}
+}
+
+\fancyhead[C]{\mysecondstyle}
+
+% ---------- Code ----------
+\usepackage{listings}
+\usepackage{courier}
+
+\lstset{
+    language=C,
+    basicstyle=\rmfamily\small,
+    numbers=none,
+    frame=single,
+    breaklines=true,
+    tabsize=4,
+    showstringspaces=false,
+    columns=fullflexible,
+    keepspaces=true,
+    literate={'}{{\textquotesingle}}1
+}
+
+\newenvironment{algosec}{%
+    \noindent\textbf{Algorithm}\par
+    \vspace{0.25\baselineskip}
+    \begin{enumerate}
+        }{
+    \end{enumerate}
+    \vspace{0.6\baselineskip}
+}
+
+\newcommand{\flowchartsec}{%
+    \noindent\textbf{Flowchart}\par
+    \vspace{0.25\baselineskip}
+}
+
+\usepackage[utf8]{inputenc}
+\usepackage{anyfontsize}
+\usepackage{ulem}
+
+\newcommand{\heading}[1]{%
+    \vspace*{0.5cm}
+    {\noindent \bfseries \fontsize{14pt}{15pt}\selectfont #1\par}
+    \vspace{0.4cm}
+}
+
+\newcommand{\para}[1]{%
+    {\normalfont \fontsize{12pt}{15pt}\selectfont
+            \par\noindent #1\par}
+}
+
+\newcommand{\subheading}[1]{ \vspace*{0.5cm} \noindent \textbf{#1} \vspace{0.2cm}}
+
+
+\usepackage{graphicx}
+\usepackage{subcaption}
