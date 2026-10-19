@@ -1,8 +1,17 @@
 \documentclass[12pt]{article}
 
+
+% ---------- Tables ----------
+\usepackage[table]{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{longtable}
+\usepackage{array}
+
 % ---------- FONT ----------
 \usepackage{mathptmx}
 \usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
 
 % ---------- Page Layout ----------
 \usepackage[a4paper,
@@ -86,6 +95,17 @@
     columns=fullflexible,
     keepspaces=true,
     literate={'}{{\textquotesingle}}1
+}
+
+\lstdefinelanguage{JavaScript}{
+    keywords={typeof, new, true, false, catch, function, return, null, switch, var, if, in, while, do, else, case, break, const, let, async, await, try, finally, throw, export, import, default, from, as, class, extends, super},
+    ndkeywords={boolean, number, String, Array, Object},
+    sensitive=true,
+    comment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    morestring=[b]',
+    morestring=[b]",
+    morestring=[b]`
 }
 
 \newenvironment{algosec}{%

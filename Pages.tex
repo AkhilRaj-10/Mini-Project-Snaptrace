@@ -10,7 +10,7 @@
 \clearpage
 % --- Page 2: PHP Section ---
 \vspace*{0.5cm}
-\subheading{1.1 INTRODUCTION}
+\subheading{1. INTRODUCTION}
 \vspace{0.5cm}
 { \normalfont \fontsize{12pt}{15pt}\selectfont
     \par
@@ -34,10 +34,8 @@
     \noindent Through this project, we demonstrate the practical application of web development, image processing, and database management concepts in addressing real-world challenges in event media management.
     \par
 }
-\newpage
-
 \vspace*{0.5cm}
-\subheading{1.2 OBJECTIVES}
+\subheading{1.1 OBJECTIVES}
 \vspace{0.5cm}
 { \normalfont \fontsize{12pt}{15pt}\selectfont
     \noindent The primary objectives of the SnapTrace: Intelligent Event Media Management and Biometric Distribution System are as follows: \par
@@ -340,15 +338,15 @@ Functionalities of the Module:
 
 \heading{4. SYSTEM ANALYSIS}
 
-\subheading{INTRODUCTION}
+\subheading{4.1 INTRODUCTION}
 
 \para{System analysis is an important phase in the software development process. It involves identifying the problems associated with the existing system, understanding user requirements, examining the operations to be performed, and determining a suitable solution. In the development of SnapTrace, system analysis focuses on the difficulties involved in manually organizing, identifying, and distributing event photographs. The analysis examines how facial-recognition technology can be integrated with a web-based application to simplify photograph identification and provide personalized galleries for registered users. It also considers the requirements for user authentication, image processing, database management, administrative operations, and controlled access to photographs. Based on this analysis, SnapTrace is designed to provide an automated and organized approach to event media management using modern web technologies.}
 
-\subheading{DEFINITION}
+\subheading{4.2 DEFINITION}
 
 \para{System analysis is the systematic study of a proposed or existing system to understand its components, functions, operations, and relationships. It involves breaking down the system into smaller functional units to identify requirements, limitations, and possible improvements. In SnapTrace, system analysis examines the interaction between the frontend, backend services, database, facial-recognition pipeline, and different user roles to determine how the application can efficiently identify and distribute relevant event photographs.}
 
-\subheading{OBJECTIVES}
+\subheading{4.3 OBJECTIVES}
 
 \para{The main objectives of system analysis for SnapTrace are as follows:}
 \begin{itemize}
@@ -456,6 +454,7 @@ These technologies work together to provide a web-based platform for user authen
     The modular structure allows individual components to be developed and verified before they are integrated into the complete application. Existing frameworks and libraries also reduce the need to implement common functions, such as routing, database connectivity, authentication, and image processing, entirely from scratch.
     The project includes backend unit tests to verify selected application functions. However, the facial-recognition workflow and background-processing queue are not comprehensively covered by those unit tests, and frontend end-to-end testing has not been established. Additional integration and performance testing would therefore be required before a larger production deployment. The overall schedule feasibility depends on the project deadline, available development time, and the effort needed for verification and refinement.
 }
+\clearpage
 \subheading{6.5 LEGAL FEASIBILITY}
 \para{
     SnapTrace processes personal information, including account details, reference selfies, facial descriptors, and event photographs. Therefore, privacy, security, and responsible data handling are important considerations in its development and deployment.
@@ -478,7 +477,7 @@ These technologies work together to provide a web-based platform for user authen
 \clearpage
 
 
-\heading{CHAPTER 7: SYSTEM DESIGN}
+\heading{7. SYSTEM DESIGN}
 
 \para{System design is an important phase in software development that translates the requirements identified during system analysis into a structured software solution. It defines the architecture, components, data flow, input and output processes, database structure, and interactions between different parts of the application. The purpose of system design is to establish a clear plan for implementing a system that meets the specified requirements while remaining maintainable and reliable.}
 
@@ -499,7 +498,7 @@ These technologies work together to provide a web-based platform for user authen
 \subheading{7.1.2. Application Layer}
 
 \para{The application layer is implemented using Node.js and Express.js. It handles API requests, authentication, role-based authorization, input validation, file uploads, image-processing operations, facial recognition, and database communication. The application uses an asynchronous in-process queue to process uploaded photographs in the background.}
-
+\clearpage
 \subheading{7.1.3. Data Layer}
 
 \para{The data layer uses MySQL Community Server to store structured application information. The database maintains user records, user settings, image metadata, user-gallery associations, administrative audit records, reports, and password-reset tokens. Facial descriptors are stored as JSON data associated with user records. The facial-recognition pipeline operates within the backend processing workflow. It uses @vladmandic/face-api, TensorFlow.js, and the WebAssembly backend to detect faces, identify facial landmarks, generate 128-dimensional facial descriptors, and compare descriptors using Euclidean distance.}
@@ -757,6 +756,65 @@ These technologies work together to provide a web-based platform for user authen
 \end{center}
 \clearpage
 
+\heading{8. DATA FLOW DIAGRAMS}
+
+\heading{8.1 INTRODUCTION TO DFD}
+
+\para{A DFD also known as ‘bubble chart’ has the purpose of clarifying system requirements and identifying major transformations. It shows the flow of data through a system. It is a graphical tool because it presents a picture. The DFD may be partitioned into levels that represent increasing information flow and functional detail. Four simple notations are used to complete a DFD. These notations are given below :-}
+
+\subheading{DATA FLOW}
+\para{The data flow is used to describe the movement of information from one part of the system to another part. Flows represent data in motion. It is a pipe line through which information flows. Data flow is represented by an arrow.}
+\vspace{0.5cm}
+\begin{center}
+    \noindent \includegraphics[width=0.3\textwidth]{dfd/Picture1.png}\par
+\end{center}
+
+\subheading{PROCESS}
+\para{A circle or bubble represents a process that transforms incoming data to outgoing data. Process shows a part of the system that transforms inputs to outputs.}
+\vspace{0.5cm}
+\begin{center}
+    \noindent \includegraphics[width=0.2\textwidth]{dfd/Picture2.png}\par
+\end{center}
+\subheading{EXTERNAL ENTITY}
+\para{A square defines a source or destination of system data. External entities represent any entity that supplies or receive information from the system but is not a part of the system.}
+\vspace{0.5cm}
+\begin{center}
+    \noindent \includegraphics[width=0.2\textwidth]{dfd/Picture3.png}\par
+\end{center}
+\clearpage
+\subheading{DATA STORE}
+\para{The data store represents a logical file. A logical file can represent either a data store symbol which can represent either a data structure or a physical file on disk. The data store is used to collect data at rest or a temporary repository of data. It is represented by open rectangle.}
+\vspace{0.5cm}
+\begin{center}
+    \noindent \includegraphics[width=0.3\textwidth]{dfd/Picture4.png}\par
+\end{center}
+\clearpage
+
+\heading{8.2 DATA FLOW DIAGRAMS}
+
+\noindent \textbf{a). DFD Level 0 }\nopagebreak\par
+\vspace{0.2cm}\nopagebreak
+\noindent \includegraphics[width=1\textwidth]{dfd/leve0.drawio.png}\par
+\vspace{0.5cm}
+
+\noindent \textbf{b). DFD Level 1 Admin}\nopagebreak\par
+\vspace{0.2cm}\nopagebreak
+\noindent \includegraphics[width=1\textwidth]{dfd/admin.png}\par
+\vspace{0.5cm}
+
+\noindent \textbf{c). DFD Level 1 Cameraman}\nopagebreak\par
+\vspace{0.2cm}\nopagebreak
+\noindent \includegraphics[width=1\textwidth]{dfd/cameraman.png}\par
+\vspace{0.5cm}
+
+
+\noindent \textbf{d). DFD Level 1 User}\nopagebreak\par
+\vspace{0.2cm}\nopagebreak
+\noindent \includegraphics[width=1\textwidth]{dfd/user.png}\par
+\vspace{0.5cm}
+
+
+
 \clearpage
 \begin{center}
     \vspace*{\fill}
@@ -818,53 +876,173 @@ These technologies work together to provide a web-based platform for user authen
 \end{center}
 \clearpage
 
-\noindent \textbf{a). Admin Audit Log}\nopagebreak\par
-\vspace{0.2cm}\nopagebreak
-\noindent \includegraphics[width=1\textwidth]{Tables/admin_audit_log.png}\par
-\vspace{0.5cm}
+\heading{10. TABLES}
+% a). Admin Audit Log
+\noindent\textbf{a). Admin Audit Log}
+\vspace{0.2cm}
+\begin{center}
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{|>{\raggedright\arraybackslash}p{3.0cm}|>{\raggedright\arraybackslash}p{4.5cm}|>{\raggedright\arraybackslash}p{8.5cm}|}
+        \hline
+        \rowcolor{lightgray!50}
+        \textbf{FIELD} & \textbf{TYPE} & \textbf{CONSTRAINT}                    \\ \hline
+        id             & INT UNSIGNED  & PRIMARY KEY, AUTO\_INCREMENT, NOT NULL \\ \hline
+        admin\_id      & INT           & NOT NULL (no declared FK in migration) \\ \hline
+        action         & VARCHAR(50)   & NOT NULL                               \\ \hline
+        target\_type   & VARCHAR(30)   & NOT NULL                               \\ \hline
+        target\_id     & INT           & DEFAULT NULL                           \\ \hline
+        ip\_address    & VARCHAR(45)   & DEFAULT NULL                           \\ \hline
+        user\_agent    & VARCHAR(500)  & DEFAULT NULL                           \\ \hline
+        success        & TINYINT(1)    & NOT NULL, DEFAULT 1                    \\ \hline
+        metadata       & JSON          & DEFAULT NULL                           \\ \hline
+        created\_at    & DATETIME      & NOT NULL, DEFAULT CURRENT\_TIMESTAMP   \\ \hline
+    \end{tabular}
+\end{center}
 
-\noindent \textbf{b). Image}\nopagebreak\par
-\vspace{0.2cm}\nopagebreak
-\noindent \includegraphics[width=1\textwidth]{Tables/imagesTable.png}\par
-\vspace{0.5cm}
+\vspace{0.4cm}
 
-\noindent \textbf{c). Password Token}\nopagebreak\par
-\vspace{0.2cm}\nopagebreak
-\noindent \includegraphics[width=1\textwidth]{Tables/password_tokentable.png}\par
-\vspace{0.5cm}
+% c). Password Token
+\noindent\textbf{b). Password Token}
+\vspace{0.2cm}
+\begin{center}
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{|>{\raggedright\arraybackslash}p{3.0cm}|>{\raggedright\arraybackslash}p{4.5cm}|>{\raggedright\arraybackslash}p{8.5cm}|}
+        \hline
+        \rowcolor{lightgray!50}
+        \textbf{FIELD} & \textbf{TYPE} & \textbf{CONSTRAINT}                                                                              \\ \hline
+        id             & INT UNSIGNED  & PRIMARY KEY, AUTO\_INCREMENT, NOT NULL                                                           \\ \hline
+        user\_id       & INT UNSIGNED  & NOT NULL, FOREIGN KEY $\rightarrow$ users.id, ON DELETE CASCADE (signedness mismatch documented) \\ \hline
+        token          & VARCHAR(255)  & UNIQUE, NOT NULL                                                                                 \\ \hline
+        expires\_at    & DATETIME      & NOT NULL                                                                                         \\ \hline
+        used           & TINYINT(1)    & NOT NULL, DEFAULT 0                                                                              \\ \hline
+        created\_at    & DATETIME      & NOT NULL, DEFAULT CURRENT\_TIMESTAMP                                                             \\ \hline
+    \end{tabular}
+\end{center}
 
-\noindent \textbf{d). Reports}\nopagebreak\par
-\vspace{0.2cm}\nopagebreak
-\noindent \includegraphics[width=1\textwidth]{Tables/reportsTable.png}\par
-\vspace{0.5cm}
+\clearpage
+% b). Image
+\noindent\textbf{c). Image}
+\vspace{0.2cm}
+\begin{center}
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{|>{\raggedright\arraybackslash}p{3.0cm}|>{\raggedright\arraybackslash}p{4.5cm}|>{\raggedright\arraybackslash}p{8.5cm}|}
+        \hline
+        \rowcolor{lightgray!50}
+        \textbf{FIELD}  & \textbf{TYPE}                                        & \textbf{CONSTRAINT}                    \\ \hline
+        id              & INT                                                  & PRIMARY KEY, AUTO\_INCREMENT, NOT NULL \\ \hline
+        filename        & VARCHAR(255)                                         & NOT NULL                               \\ \hline
+        filepath        & VARCHAR(500)                                         & NOT NULL                               \\ \hline
+        original\_name  & VARCHAR(255)                                         & DEFAULT NULL                           \\ \hline
+        mime\_type      & VARCHAR(100)                                         & DEFAULT NULL                           \\ \hline
+        file\_size      & BIGINT UNSIGNED                                      & DEFAULT 0                              \\ \hline
+        uploaded\_by    & INT                                                  & DEFAULT NULL                           \\ \hline
+        uploaded\_at    & TIMESTAMP                                            & DEFAULT CURRENT\_TIMESTAMP             \\ \hline
+        thumbnail\_path & VARCHAR(500)                                         & NOT NULL, DEFAULT ''                   \\ \hline
+        status          & ENUM('pending', 'processing', 'completed', 'failed') & NOT NULL, DEFAULT 'completed'          \\ \hline
+    \end{tabular}
+\end{center}
 
-\noindent \textbf{e). User Gallery}\nopagebreak\par
-\vspace{0.2cm}\nopagebreak
-\noindent \includegraphics[width=1\textwidth]{Tables/user_gallery.png}\par
-\vspace{0.5cm}
-
-\noindent \textbf{f). User Settings}\nopagebreak\par
-\vspace{0.2cm}\nopagebreak
-\noindent \includegraphics[width=1\textwidth]{Tables/user_settingsTable.png}\par
-\vspace{0.5cm}
-
-\noindent \textbf{g). User}\nopagebreak\par
-\vspace{0.2cm}\nopagebreak
-\noindent \includegraphics[width=1\textwidth]{Tables/userTable.png}\par
-\vspace{0.5cm}
+% e). User Gallery
+\vspace{0.2cm}
+\noindent\textbf{d). User Gallery}
+\vspace{0.2cm}
+\begin{center}
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{|>{\raggedright\arraybackslash}p{3.0cm}|>{\raggedright\arraybackslash}p{4.5cm}|>{\raggedright\arraybackslash}p{8.5cm}|}
+        \hline
+        \rowcolor{lightgray!50}
+        \textbf{FIELD}    & \textbf{TYPE} & \textbf{CONSTRAINT}                                              \\ \hline
+        id                & INT           & PRIMARY KEY, AUTO\_INCREMENT, NOT NULL                           \\ \hline
+        user\_id          & INT           & NOT NULL, FOREIGN KEY $\rightarrow$ users.id, ON DELETE CASCADE  \\ \hline
+        photo\_id         & INT           & NOT NULL, FOREIGN KEY $\rightarrow$ images.id, ON DELETE CASCADE \\ \hline
+        match\_confidence & FLOAT         & NOT NULL, DEFAULT 0                                              \\ \hline
+        matched\_at       & DATETIME      & NOT NULL, DEFAULT CURRENT\_TIMESTAMP                             \\ \hline
+    \end{tabular}
+\end{center}
 
 
 \clearpage
+% d). Reports
+\noindent\textbf{e). Reports}
+\vspace{0.2cm}
+\begin{center}
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{|>{\raggedright\arraybackslash}p{3.0cm}|>{\raggedright\arraybackslash}p{4.5cm}|>{\raggedright\arraybackslash}p{8.5cm}|}
+        \hline
+        \rowcolor{lightgray!50}
+        \textbf{FIELD} & \textbf{TYPE}                                       & \textbf{CONSTRAINT}                    \\ \hline
+        id             & INT UNSIGNED                                        & PRIMARY KEY, AUTO\_INCREMENT, NOT NULL \\ \hline
+        name           & VARCHAR(255)                                        & NOT NULL                               \\ \hline
+        type           & VARCHAR(50)                                         & NOT NULL                               \\ \hline
+        status         & ENUM('queued', 'generating', 'completed', 'failed') & NOT NULL, DEFAULT 'queued'             \\ \hline
+        generated\_by  & INT                                                 & NOT NULL (no declared FK in migration) \\ \hline
+        file\_path     & VARCHAR(500)                                        & DEFAULT NULL                           \\ \hline
+        metadata       & JSON                                                & DEFAULT NULL                           \\ \hline
+        created\_at    & DATETIME                                            & NOT NULL, DEFAULT CURRENT\_TIMESTAMP   \\ \hline
+        completed\_at  & DATETIME                                            & DEFAULT NULL                           \\ \hline
+    \end{tabular}
+\end{center}
+
+\vspace{0.4cm}
+% f). User Settings
+\noindent\textbf{f). User Settings}
+\vspace{0.2cm}
+\begin{center}
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{|>{\raggedright\arraybackslash}p{3.0cm}|>{\raggedright\arraybackslash}p{4.5cm}|>{\raggedright\arraybackslash}p{8.5cm}|}
+        \hline
+        \rowcolor{lightgray!50}
+        \textbf{FIELD} & \textbf{TYPE} & \textbf{CONSTRAINT}                                                \\ \hline
+        user\_id       & INT           & PRIMARY KEY, FOREIGN KEY $\rightarrow$ users.id, ON DELETE CASCADE \\ \hline
+        viewed\_photos & TINYINT(1)    & NOT NULL, DEFAULT 1                                                \\ \hline
+        email\_photos  & TINYINT(1)    & NOT NULL, DEFAULT 1                                                \\ \hline
+        keep\_face     & TINYINT(1)    & NOT NULL, DEFAULT 0                                                \\ \hline
+        email\_notifs  & TINYINT(1)    & NOT NULL, DEFAULT 1                                                \\ \hline
+        sms\_notifs    & TINYINT(1)    & NOT NULL, DEFAULT 0                                                \\ \hline
+        marketing      & TINYINT(1)    & NOT NULL, DEFAULT 0                                                \\ \hline
+    \end{tabular}
+\end{center}
+
+\vspace{0.4cm}
+\clearpage
+% g). User
+\noindent\textbf{g). User}
+\vspace{0.2cm}
+\begin{center}
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{|>{\raggedright\arraybackslash}p{3.0cm}|>{\raggedright\arraybackslash}p{4.5cm}|>{\raggedright\arraybackslash}p{8.5cm}|}
+        \hline
+        \rowcolor{lightgray!50}
+        \textbf{FIELD}      & \textbf{TYPE}                           & \textbf{CONSTRAINT}                                      \\ \hline
+        id                  & INT                                     & PRIMARY KEY, AUTO\_INCREMENT, NOT NULL                   \\ \hline
+        first\_name         & VARCHAR(100)                            & NOT NULL                                                 \\ \hline
+        last\_name          & VARCHAR(100)                            & NOT NULL                                                 \\ \hline
+        email               & VARCHAR(255)                            & UNIQUE, NOT NULL                                         \\ \hline
+        password            & VARCHAR(255)                            & NOT NULL                                                 \\ \hline
+        role                & VARCHAR(20)                             & NOT NULL, DEFAULT 'user'                                 \\ \hline
+        status              & ENUM('active', 'suspended', 'inactive') & NOT NULL, DEFAULT 'active'                               \\ \hline
+        token\_valid\_after & DATETIME                                & DEFAULT NULL                                             \\ \hline
+        created\_at         & TIMESTAMP                               & DEFAULT CURRENT\_TIMESTAMP                               \\ \hline
+        last\_login\_at     & DATETIME                                & DEFAULT NULL                                             \\ \hline
+        updated\_at         & DATETIME                                & DEFAULT CURRENT\_TIMESTAMP, ON UPDATE CURRENT\_TIMESTAMP \\ \hline
+        phone               & VARCHAR(30)                             & DEFAULT NULL                                             \\ \hline
+        avatar\_url         & VARCHAR(500)                            & DEFAULT NULL                                             \\ \hline
+        face\_scan\_url     & VARCHAR(500)                            & DEFAULT NULL                                             \\ \hline
+    \end{tabular}
+\end{center}
+
+\clearpage
+
 \begin{center}
     \vspace*{\fill}
     % \fontsize{Size}{LineSpacing}\selectfont
     % Change 80 to 100 or 120 if you want it even bigger!
-    \fontsize{28}{28}\selectfont \textbf{TEST STRATEGY}
+    \fontsize{28}{28}\selectfont \textbf{SYSTEM TESTING}
     \vspace*{\fill}
 \end{center}
 \clearpage
 
-\heading{CHAPTER 11: SYSTEM TESTING}
+\heading{11. SYSTEM TESTING}
 
 \para{System testing is an important phase of software development and quality assurance. It involves evaluating the behaviour of a software application to determine whether it satisfies the specified requirements. Testing helps identify errors, verify the correctness of individual modules, and examine the interaction between different components of the system.}
 
@@ -886,8 +1064,8 @@ These technologies work together to provide a web-based platform for user authen
 \end{itemize}
 
 \para{Each technique focuses on a different aspect of the application. The following sections describe how these techniques apply to SnapTrace and distinguish verified results from testing activities that require further execution.}
-
-\subheading{11.2 UNIT TESTING}
+\clearpage
+\subheading{11.1.1 UNIT TESTING}
 
 \para{Unit testing is the process of testing individual functions, components, or modules to verify that they produce the expected results. It is generally performed during development to identify errors before the modules are integrated into the complete application.}
 
@@ -905,7 +1083,7 @@ These technologies work together to provide a web-based platform for user authen
 
 \para{The results indicate that all 44 tests passed during the recorded execution. This provides evidence that the behaviours covered by those tests worked as expected in that run. However, it does not establish complete test coverage of every module. The facial-recognition inference pipeline and asynchronous image-processing queue are not comprehensively covered by the available unit-test evidence.}
 
-\subheading{11.3 INTEGRATION TESTING}
+\subheading{11.1.2 INTEGRATION TESTING}
 
 \para{Integration testing examines whether different modules communicate correctly and exchange information as expected. It focuses on identifying problems at the interfaces between application components.}
 
@@ -924,7 +1102,7 @@ These technologies work together to provide a web-based platform for user authen
 
 \para{These checks are important for ensuring that individual modules work together correctly. Comprehensive integration-test completion has not been established by the available test results; therefore, the above activities should be recorded as completed only after they have been executed and their results documented.}
 
-\subheading{11.4 VALIDATION TESTING}
+\subheading{11.1.3 VALIDATION TESTING}
 
 \para{Validation testing determines whether the software meets its intended functional requirements. It examines whether the system accepts valid inputs, rejects invalid inputs, and performs the operations expected by its users.}
 
@@ -944,7 +1122,7 @@ These technologies work together to provide a web-based platform for user authen
 
 \para{The implementation of these validation rules does not, by itself, demonstrate that every case has been tested successfully. Actual results should be recorded after executing the relevant test cases.}
 
-\subheading{11.5 SYSTEM TESTING}
+\subheading{11.1.4 SYSTEM TESTING}
 
 \para{System testing evaluates the application as a complete system. It examines whether the frontend, backend, database, authentication mechanisms, image-processing operations, and facial-recognition workflow function together as intended.}
 
@@ -965,7 +1143,7 @@ These technologies work together to provide a web-based platform for user authen
 
 \para{System testing should also examine error handling, authorization restrictions, database consistency, and the handling of uploaded media. Although the backend unit tests have passed, comprehensive end-to-end system testing has not been established by the available evidence.}
 
-\subheading{11.6 OUTPUT TESTING}
+\subheading{11.1.5 OUTPUT TESTING}
 
 \para{Output testing verifies whether the information generated by an application is correct, accessible, and presented in the expected format. It examines the results produced by different application operations.}
 
@@ -988,7 +1166,7 @@ These technologies work together to provide a web-based platform for user authen
 
 \para{Comprehensive output-test results have not been established by the available evidence and should be documented after the relevant checks are performed.}
 \clearpage
-\subheading{11.7 USER ACCEPTANCE TESTING}
+\subheading{11.1.6 USER ACCEPTANCE TESTING}
 
 \para{User Acceptance Testing (UAT) evaluates whether the system meets the practical requirements and expectations of its intended users. It typically involves representative users performing common tasks and reviewing whether the application supports their needs.}
 
@@ -1008,7 +1186,7 @@ These technologies work together to provide a web-based platform for user authen
 
 \para{Formal user acceptance testing with documented results has not been established in the available project information. Therefore, these scenarios are presented as a proposed acceptance-testing procedure rather than completed UAT.}
 
-\subheading{11.8 TESTING SUMMARY}
+\subheading{11.1.7 TESTING SUMMARY}
 
 \para{The SnapTrace project includes automated backend testing using Vitest. The recorded execution contains five test suites and 44 tests, all of which passed. This demonstrates successful execution of the behaviours covered by those tests.}
 
@@ -1044,7 +1222,7 @@ These technologies work together to provide a web-based platform for user authen
     \item Third Normal Form (3NF)
 \end{itemize}
 
-\subheading{11.1 FIRST NORMAL FORM (1NF)}
+\subheading{12.1 FIRST NORMAL FORM (1NF)}
 
 \para{A relation is in First Normal Form when each field contains a single value from its defined domain, each row can be uniquely identified, and repeating groups or multivalued attributes are not stored as repeated columns.}
 
@@ -1103,7 +1281,13 @@ These technologies work together to provide a web-based platform for user authen
     \vspace*{\fill}
 \end{center}
 \clearpage
+\heading{14. CONCLUSION}
 
+\para{The {\bfseries{SnapTrace}} project provides an intelligent and user-friendly solution for managing event photographs using facial recognition technology. The system addresses the common difficulty of finding individual photographs among large collections of event images by enabling users to access photographs that match their registered facial images. It simplifies the process of organizing, searching, and retrieving event photographs through a centralized web-based platform.}
+\para{The system integrates modern web technologies, including {\bfseries{React, Vite, Node.js, Express.js, and MySQL}}, to support user authentication, reference selfie registration, event photo uploads, facial recognition-based matching, personalized photo galleries, and administrative management. It also provides features for photographers to upload event photographs and for administrators to manage users, monitor system activities, and generate reports. These functionalities demonstrate the practical application of web development, database management, and facial recognition concepts in solving a real-world problem.}
+\para{The development of SnapTrace demonstrates how automation and biometric image processing can improve the accessibility and organization of digital photographs. The system establishes a foundation for simplifying photo discovery and reducing the need for manual searching. However, the effectiveness of facial matching depends on factors such as image quality, lighting conditions, facial visibility, and the reliability of the recognition process. Appropriate attention to authentication, data protection, and the handling of facial information is also essential for responsible system operation.}
+\para{In conclusion, {\bfseries{SnapTrace represents a practical application of intelligent image management and facial recognition in event photography}}. The project provides a foundation for future enhancements, including improved recognition performance, more efficient processing of large photo collections, enhanced privacy controls, and expanded reporting capabilities. With further testing and development, SnapTrace can evolve into a more comprehensive platform for managing and retrieving event photographs efficiently.}
+\clearpage
 \begin{center}
     \vspace*{\fill}
     % \fontsize{Size}{LineSpacing}\selectfont
@@ -1113,6 +1297,29 @@ These technologies work together to provide a web-based platform for user authen
 \end{center}
 \clearpage
 
+\heading{15. REFERENCES}
+
+\begin{enumerate}
+    \item React Documentation. \textit{React – The Library for Web and Native User Interfaces.} Available at: \url{https://react.dev/}
+
+    \item Vite Documentation. \textit{Vite – Next Generation Frontend Tooling.} Available at: \url{https://vite.dev/}
+
+    \item Node.js Documentation. \textit{Node.js – JavaScript Runtime Environment.} Available at: \url{https://nodejs.org/docs/}
+
+    \item Express.js Documentation. \textit{Express – Node.js Web Application Framework.} Available at: \url{https://expressjs.com/}
+
+    \item MySQL Documentation. \textit{MySQL Reference Manual.} Available at: \url{https://dev.mysql.com/doc/}
+
+    \item OpenCV Documentation. \textit{OpenCV – Open Source Computer Vision Library.} Available at: \url{https://docs.opencv.org/}
+
+    \item MDN Web Docs. \textit{HTML, CSS, and JavaScript Web Development Documentation.} Available at: \url{https://developer.mozilla.org/}
+
+    \item OWASP Foundation. \textit{OWASP Top 10: Web Application Security Risks.} Available at: \url{https://owasp.org/www-project-top-ten/}
+
+    \item Schroff, F., Kalenichenko, D., and Philbin, J. (2015). \textit{FaceNet: A Unified Embedding for Face Recognition and Clustering.} Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), pp. 815–823. \url{https://doi.org/10.1109/CVPR.2015.7298682}
+
+    \item Szeliski, R. (2022). \textit{Computer Vision: Algorithms and Applications.} 2nd edition. Springer. Available at: \url{https://szeliski.org/Book/}
+\end{enumerate}
 
 \clearpage
 \begin{center}
@@ -1123,7 +1330,3 @@ These technologies work together to provide a web-based platform for user authen
     \vspace*{\fill}
 \end{center}
 \clearpage
-
-
-
-
